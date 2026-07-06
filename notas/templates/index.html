@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Notas</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Notas</h1>
+
+    <!-- Seção de Notas -->
+    <section class="card">
+        <h2>📝 Blocos de Notas</h2>
+        <div class="form-group">
+            <label for="titulo-nota">Título</label>
+            <input type="text" id="titulo-nota" placeholder="Título da nota (opcional)">
+        </div>
+        <div class="form-group">
+            <label for="categoria-nota">Categoria</label>
+            <input type="text" id="categoria-nota" placeholder="Digite a categoria" />
+        </div>
+        <div class="form-group">
+            <label>Nota</label>
+            <div id="texto-nota" class="editor" contenteditable="true" data-placeholder="Escreva sua nota aqui..."></div>
+        </div>
+        <div class="form-group">
+            <label class="editor-info">Cole imagens diretamente aqui com Ctrl+V.</label>
+        </div>
+        <button id="salvar-nota">Salvar Nota</button>
+    </section>
+
+    <!-- Seção de Filtros -->
+    <section class="card">
+        <h2>🔍 Filtrar histórico</h2>
+        <div class="filtros">
+            <div class="form-group filtro-item">
+                <label for="filtro-texto">Pesquisar texto</label>
+                <input type="text" id="filtro-texto" placeholder="Buscar título ou conteúdo">
+            </div>
+            <div class="form-group filtro-item">
+                <label for="filtro-categoria">Categoria</label>
+                <input type="text" id="filtro-categoria" placeholder="Buscar por categoria" />
+            </div>
+            <div class="form-group filtro-item">
+                <label for="filtro-data">Data de criação</label>
+                <input type="date" id="filtro-data">
+            </div>
+            <div class="filtro-actions">
+                <button id="limpar-filtro" class="btn-secundario">Limpar filtros</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Histórico de Notas -->
+    <section class="card">
+        <h2>📚 Histórico de Notas</h2>
+        <div id="historico-wrapper">
+            <div id="historico-notas"></div>
+        </div>
+    </section>
+
+    <!-- Modal para editar nota -->
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Nota</h2>
+            <div class="form-group">
+                <label for="titulo-editar">Título</label>
+                <input type="text" id="titulo-editar" placeholder="Título da nota">
+            </div>
+            <div class="form-group">
+                <label for="categoria-editar">Categoria</label>
+                <input type="text" id="categoria-editar" placeholder="Digite a categoria" />
+            </div>
+            <div class="form-group">
+                <label>Nota</label>
+                <div id="texto-editar" class="editor" contenteditable="true" data-placeholder="Edite sua nota aqui..."></div>
+            </div>
+            <button id="confirmar-edicao">Confirmar</button>
+        </div>
+    </div>
+
+    <!-- Seção de Gerador de Senhas -->
+    <section class="card">
+        <h2>🔐 Gerador de Senhas</h2>
+        <label>Tamanho: <input type="number" id="tamanho-senha" value="12" min="4" max="50"></label>
+
+        <div>
+            <label><input type="checkbox" id="minusculas" checked> Minúsculas</label>
+            <label><input type="checkbox" id="maiusculas" checked> Maiúsculas</label>
+            <label><input type="checkbox" id="numeros" checked> Números</label>
+            <label><input type="checkbox" id="simbolos"> Símbolos</label>
+        </div>
+
+        <button id="gerar-senha">Gerar Senha</button>
+        <div id="resultado-senha" class="senha"></div>
+        <button id="copiar-senha">Copiar</button>
+    </section>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
